@@ -55,9 +55,13 @@
           sliderImages[current - 1].style.display = 'block';
           current--;
         }
-
-      
         
+        // show next
+        const slideRight = () => {
+          reset();
+          sliderImages[current + 1].style.display = 'block';
+          current++;
+        }
 
         // Left arrow click
         arrowLeft.addEventListener('click', () => {
@@ -65,13 +69,16 @@
             current = sliderImages.length;
           };
           slideLeft();
-
         });
 
+        arrowRight.addEventListener('click', () => {
+          if (current == sliderImages.length - 1) {
+            current = -1;
+          };
+          slideRight();
+        });
 
         startSlide();
-
-      
       </script>
     </div>
   </body>
